@@ -1,4 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+header {
+  background: lightgrey;
+  padding: 10px;
+}
+
 h1 {
   color: blue;
-  font-family: Arial, sans-serif;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  width: 80px;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  font-weight: bold;
+}
+
+main {
+  padding: 10px;
 }
