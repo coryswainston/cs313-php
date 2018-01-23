@@ -1,15 +1,35 @@
-myWindow = document.getElementById('window')
-titleBar = myWindow.getElementsByClassName('title-bar')[0]
+/* Window class */
+function Window(idOrClass) {
+  this.self = document.getElementById(idOrClass)
+  if (this.self == null) {
+    this.self = document.getElementsByClassName(idOrClass)[0]
+  }
+  this.style = this.self.style
+  this.classes = this.self.classList
+  this.x = 50
+  this.y = 50
+  this.width = .5 * document.body.clientWidth
+  this.height = getDocHeight() * .5
+  this.addClass = function(className) {
+    this.classes.add(className)
+  }
+  this.removeClass = function(className) {
+    this.classes.remove(className)
+  }
+}
+
+function getDocHeight() {
+  var body = document.body
+  var html = document.documentElement
+  return Math.max(body.scrollHeight, body.offsetHeight,
+                     html.clientHeight, html.scrollHeight, html.offsetHeight)
+}
+
+myWindow = new Window('window')
+titleBar = myWindow.self.getElementsByClassName('title-bar')[0]
 windowResize = document.getElementById('resize')
 windowExit = document.getElementById('exit')
-myWindowX = 50
-myWindowY = 50
-windowWidth = .5 * document.body.clientWidth
-body = document.body,
-html = document.documentElement;
-height = Math.max( body.scrollHeight, body.offsetHeight,
-                   html.clientHeight, html.scrollHeight, html.offsetHeight );
-windowHeight = .5 * height
+
 
 var icons = document.getElementsByClassName('icon')
 for (var i = 0; i < icons.length; i++) {
@@ -17,11 +37,11 @@ for (var i = 0; i < icons.length; i++) {
     this.style.backgroundColor = "blue"
     if (this.classList.contains('clicked')) {
       this.style.backgroundColor = null
-      myWindow.classList.remove('invisible')
-      myWindow.style.left = myWindowX + 'px'
-      myWindow.style.top = myWindowY + 'px'
-      myWindow.style.width = windowWidth + 'px'
-      myWindow.style.height = windowHeight + 'px'
+      myWindow.removeClass('invisible')
+      myWindow.style.left = myWindow.x + 'px'
+      myWindow.style.top = myWindow.y + 'px'
+      myWindow.style.width = myWindow.width + 'px'
+      myWindow.style.height = myWindow.width + 'px'
       this.classList.remove('clicked')
     } else {
       this.classList.add('clicked')
@@ -43,10 +63,10 @@ titleBar.onmousedown = function() {
     var diffY = clientY - event.clientY
     clientX = event.clientX
     clientY = event.clientY
-    myWindowX -= diffX
-    myWindowY -= diffY
-    myWindow.style.left = myWindowX + "px"
-    myWindow.style.top = myWindowY + "px"
+    myWindow.x -= diffX
+    myWindow.y -= diffY
+    myWindow.style.left = myWindow.x + "px"
+    myWindow.style.top = myWindow.y + "px"
   }
 }
 
@@ -63,18 +83,17 @@ windowResize.onmousedown = function() {
     }
     var diffX = clientX - event.clientX
     var diffY = clientY - event.clientY
-    console.log("diff{" + diffX + "," + diffY)
-    windowWidth -= diffX
-    windowHeight -= diffY
+    myWindow.width -= diffX
+    myWindow.height -= diffY
     clientX = event.clientX
     clientY = event.clientY
-    myWindow.style.width = windowWidth + "px"
-    myWindow.style.height = windowHeight + "px"
+    myWindow.style.width = myWindow.width + "px"
+    myWindow.style.height = myWindow.height + "px"
   }
 }
 
 windowExit.onclick = function() {
-  myWindow.classList.add('invisible')
+  myWindow.addClass('invisible')
 }
 
 document.onmouseup = function() {
@@ -84,9 +103,9 @@ document.onmouseup = function() {
 
 function onStartClick() {
   var startMenu = document.getElementsByClassName('start-menu')[0]
-  if (startMenu.classList.contains('invisible')) {
-    startMenu.classList.remove('invisible')
+  if (!startMenu.classList.contains('full-size')) {
+    startMenu.classList.add('full-size')
   } else {
-    startMenu.classList.add('invisible')
+    startMenu.classList.remove('full-size')
   }
 }
