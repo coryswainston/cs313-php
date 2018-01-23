@@ -1,39 +1,92 @@
-var canvas = document.getElementById("game")
-var ctx = canvas.getContext("2d")
+myWindow = document.getElementById('window')
+titleBar = myWindow.getElementsByClassName('title-bar')[0]
+windowResize = document.getElementById('resize')
+windowExit = document.getElementById('exit')
+myWindowX = 50
+myWindowY = 50
+windowWidth = .5 * document.body.clientWidth
+body = document.body,
+html = document.documentElement;
+height = Math.max( body.scrollHeight, body.offsetHeight,
+                   html.clientHeight, html.scrollHeight, html.offsetHeight );
+windowHeight = .5 * height
 
-var text = {
-  x: 0,
-  y: 24,
-  dx: 2,
-  dy: 2,
-  font: "24px Arial",
-  text: "Hello World!",
-  update: function() {
-    this.x += this.dx
-    this.y += this.dy
-    if (this.x == 470 || this.x == 0) {
-      this.dx *= -1
-    }
-    if (this.y == 300 || this.y == 20) {
-      this.dy *= -1
+var icons = document.getElementsByClassName('icon')
+for (var i = 0; i < icons.length; i++) {
+  icons[i].onclick = function() {
+    this.style.backgroundColor = "blue"
+    if (this.classList.contains('clicked')) {
+      this.style.backgroundColor = null
+      myWindow.classList.remove('invisible')
+      myWindow.style.left = myWindowX + 'px'
+      myWindow.style.top = myWindowY + 'px'
+      myWindow.style.width = windowWidth + 'px'
+      myWindow.style.height = windowHeight + 'px'
+      this.classList.remove('clicked')
+    } else {
+      this.classList.add('clicked')
     }
   }
 }
 
-function draw() {
-  ctx.fillStyle = "grey"
-  ctx.fillRect(0, 0, 600, 300)
+var clientX, clientY
 
-  ctx.fillStyle = "blue"
-  ctx.font = text.font
-  ctx.fillText(text.text, text.x, text.y)
+titleBar.onmousedown = function() {
+  document.onmousemove = dragWindow
+  function dragWindow(event) {
+    event.preventDefault()
+    if (clientX == null || clientY == null) {
+      clientX = event.clientX
+      clientY = event.clientY
+    }
+    var diffX = clientX - event.clientX
+    var diffY = clientY - event.clientY
+    clientX = event.clientX
+    clientY = event.clientY
+    myWindowX -= diffX
+    myWindowY -= diffY
+    myWindow.style.left = myWindowX + "px"
+    myWindow.style.top = myWindowY + "px"
+  }
 }
 
-function update() {
-  text.update()
+windowResize.onmousedown = function() {
+  if (event.target !== this) {
+    return
+  }
+  document.onmousemove = resizeWindow
+  function resizeWindow(event) {
+    event.preventDefault()
+    if (clientX == null || clientY == null) {
+      clientX = event.clientX
+      clientY = event.clientY
+    }
+    var diffX = clientX - event.clientX
+    var diffY = clientY - event.clientY
+    console.log("diff{" + diffX + "," + diffY)
+    windowWidth -= diffX
+    windowHeight -= diffY
+    clientX = event.clientX
+    clientY = event.clientY
+    myWindow.style.width = windowWidth + "px"
+    myWindow.style.height = windowHeight + "px"
+  }
 }
 
-setInterval(function() {
-  update()
-  draw()
-}, 60)
+windowExit.onclick = function() {
+  myWindow.classList.add('invisible')
+}
+
+document.onmouseup = function() {
+  document.onmousemove = null
+  clientX = clientY = null
+}
+
+function onStartClick() {
+  var startMenu = document.getElementsByClassName('start-menu')[0]
+  if (startMenu.classList.contains('invisible')) {
+    startMenu.classList.remove('invisible')
+  } else {
+    startMenu.classList.add('invisible')
+  }
+}
