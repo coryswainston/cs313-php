@@ -41,7 +41,7 @@ for (var i = 0; i < icons.length; i++) {
       myWindow.style.left = myWindow.x + 'px'
       myWindow.style.top = myWindow.y + 'px'
       myWindow.style.width = myWindow.width + 'px'
-      myWindow.style.height = myWindow.width + 'px'
+      myWindow.style.height = myWindow.height + 'px'
       this.classList.remove('clicked')
     } else {
       this.classList.add('clicked')
