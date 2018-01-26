@@ -1,0 +1,178 @@
+body {
+  margin: 0;
+  font-family: Raleway, sans-serif;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 42pt;
+  margin: 0;
+}
+
+h2 {
+  font-size: 32pt;
+  margin: 0;
+}
+
+h3 {
+  font-size: 18pt;
+}
+
+header, main, footer {
+  padding: 50px 20px 10px;
+}
+
+@media screen and (min-width: 700px) {
+  header, main, footer {
+    padding: 50px 80px 10px;
+  }
+}
+
+header, footer {
+  background: #333;
+  color: white;
+}
+
+header {
+}
+
+nav ul li {
+  display: inline-block;
+  padding-right: 10px;
+  text-transform: uppercase;
+  font-size: 14pt;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 1000px) {
+  main {
+    width: 75%;
+  }
+}
+
+#sidebar {
+  width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+  #sidebar {
+    width: 25%;
+  }
+}
+
+footer {
+}
+
+#items {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@media screen and (min-width: 700px) {
+  #items {
+    justify-content: flex-start;
+  }
+}
+
+.item {
+  height: 240px;
+  width: 25%;
+  min-width: 200px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: -5px 5px 20px grey;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.item:hover {
+  border: 1px solid lightblue;
+}
+
+.photo {
+  height: 60%;
+  max-width: 100%;
+}
+
+.photo img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.product-info {
+  display: block;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+#big_item {
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.big_photo {
+  max-width: 300px;
+  border: 1px solid lightgrey;
+  padding: 20px;
+}
+
+.big_photo img {
+  width: 100%;
+}
+
+.big_info {
+  min-width: 200px;
+  padding: 0 10px;
+}
+
+.big_info form {
+  margin: 20px 0;
+}
+
+.big_info input {
+  width: 30px;
+  border-radius: 4px;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+
+button {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  text-transform: uppercase;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: black;
+}
