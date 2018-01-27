@@ -78,6 +78,7 @@ main {
 }
 
 footer {
+  height: 300px;
 }
 
 #items {
@@ -175,4 +176,60 @@ button {
 
 button:hover {
   background: black;
+}
+
+#display-img, #display-img img {
+  width: 100%;
+  text-align: center;
+}
+
+.big-link {
+  background: #333;
+  color: white;
+  text-transform: uppercase;
+  padding: 20px;
+  font-size: 30pt;
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.big-link:hover {
+  background: #ccc;
+  color: #333;
+}
+
+p {
+  background: #333;
+  color: white;
+  font-size: 14pt;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+#cart {
+  width: 100%;
+}
+
+#cart, td, th {
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+
+#cart .item-price {
+  text-align: right;
+}
+
+#cart .total {
+  font-weight: bold;
+}
+
+th, .total {
+  background: lightgrey;
+}
+
+.address-form input {
+  padding: 10px;
+  margin: 5px 0;
 }

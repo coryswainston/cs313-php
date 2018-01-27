@@ -15,6 +15,7 @@
       <?php include 'header.php'; ?>
     </header>
     <main>
+      <h2>Your order is being processed.</h2>
       <?php
         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
           if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -26,8 +27,6 @@
           <tr>
             <th>Product name</th>
             <th>Price</th>
-            <th>
-            </th>
           </tr>";
           $total = 0;
           foreach ($cart as $id) {
@@ -37,18 +36,11 @@
             echo "<tr class=\"cart-item\">
               <td class=\"item-name\">$name</td>
               <td class=\"item-price\">$price</td>
-              <td class=\"remove\">
-              <form action=\"\" method=\"post\">
-                <input type=\"hidden\" name=\"remove-id\" value=\"$id\" />
-                <button type=\"submit\">Remove</button>
-              </form>
-              </td></tr>";
+              </tr>";
           }
           echo "<tr>
             <td class=\"total\">Total</td>
             <td class=\"total item-price\">$total</td>
-            <td>
-            </td>
           </tr>";
           echo "</table>";
         }
@@ -57,8 +49,13 @@
           Your cart is currently empty.
           </p>";
         }
+        $customer_name = htmlspecialchars($_POST['name']);
+        $address = htmlspecialchars($_POST['address']);
+        $city = htmlspecialchars($_POST['city']);
+        $state = htmlspecialchars($_POST['state']);
        ?>
-       <a href="checkout.php" class="big-link">Checkout</a>
+       <h3>Shipping to:</h3>
+       <?php echo "$customer_name<br />$address<br />$city, $state"; ?>
     </main>
     <footer>
       <?php include 'footer.php'; ?>

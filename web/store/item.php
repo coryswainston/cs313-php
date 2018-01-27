@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include 'items.php'; ?>
 
 <!DOCTYPE html>
@@ -15,6 +16,18 @@
     </header>
     <main>
       <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+          if (isset($_POST["id"])) {
+            for ($i = 0; $i < $_POST['quantity']; $i++) {
+              if (isset($_SESSION['cart'])) {
+                array_push($_SESSION['cart'], $_POST['id']);
+              } else {
+                $_SESSION['cart'] = array();
+              }
+            }
+          }
+        }
+
         $idx = $_GET['idx'];
         $item = $items[$idx];
         $photo_url = $item['photo_url'];
@@ -28,7 +41,7 @@
          <div class="big_info">
            <h3><?php echo $name ?></h3>
            <?php echo "\$$price" ?>
-           <form action="cart.php" method="post">
+           <form action="" method="post">
              <input type="hidden" name="id" value="<?php echo $idx ?>">
              <input type="number" name="quantity" value="1">
              <button type="submit" name="add_to_cart">Add to cart</button>

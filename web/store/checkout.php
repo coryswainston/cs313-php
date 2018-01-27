@@ -26,8 +26,6 @@
           <tr>
             <th>Product name</th>
             <th>Price</th>
-            <th>
-            </th>
           </tr>";
           $total = 0;
           foreach ($cart as $id) {
@@ -37,18 +35,11 @@
             echo "<tr class=\"cart-item\">
               <td class=\"item-name\">$name</td>
               <td class=\"item-price\">$price</td>
-              <td class=\"remove\">
-              <form action=\"\" method=\"post\">
-                <input type=\"hidden\" name=\"remove-id\" value=\"$id\" />
-                <button type=\"submit\">Remove</button>
-              </form>
-              </td></tr>";
+              </tr>";
           }
           echo "<tr>
             <td class=\"total\">Total</td>
             <td class=\"total item-price\">$total</td>
-            <td>
-            </td>
           </tr>";
           echo "</table>";
         }
@@ -58,7 +49,15 @@
           </p>";
         }
        ?>
-       <a href="checkout.php" class="big-link">Checkout</a>
+       <form class="address-form" method="post" action="confirm.php">
+         <br />Please enter shipping info:<br />
+         <input type="text" name="name" placeholder="Name"><br />
+         <input type="text" name="address" placeholder="Street Address"><br />
+         <input type="text" name="city" placeholder="City">
+         <input type="text" name="state" placeholder="State">
+         <button type="submit">Proceed with checkout</button>
+         <a href="cart.php">Back to cart</a>
+       </form>
     </main>
     <footer>
       <?php include 'footer.php'; ?>
