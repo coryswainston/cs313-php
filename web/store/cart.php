@@ -51,6 +51,7 @@
             </td>
           </tr>";
           echo "</table>";
+          echo "<br /><a href=\"checkout.php\" class=\"big-link\">Checkout</a>";
         }
         if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
           echo "<p>
@@ -58,7 +59,6 @@
           </p>";
         }
        ?>
-       <a href="checkout.php" class="big-link">Checkout</a>
     </main>
     <footer>
       <?php include 'footer.php'; ?>

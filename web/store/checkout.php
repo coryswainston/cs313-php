@@ -55,7 +55,7 @@
          <input type="text" name="address" placeholder="Street Address"><br />
          <input type="text" name="city" placeholder="City">
          <input type="text" name="state" placeholder="State">
-         <button type="submit">Proceed with checkout</button>
+         <br /><button type="submit">Proceed with checkout</button>
          <a href="cart.php">Back to cart</a>
        </form>
     </main>

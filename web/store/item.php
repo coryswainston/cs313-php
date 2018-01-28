@@ -22,9 +22,12 @@
               if (isset($_SESSION['cart'])) {
                 array_push($_SESSION['cart'], $_POST['id']);
               } else {
-                $_SESSION['cart'] = array();
+                $_SESSION['cart'] = array($_POST['id']);
               }
             }
+            echo "<p>
+              Item successfully added to cart. <a href=\"cart.php\">View cart</a>
+            </p>";
           }
         }
 

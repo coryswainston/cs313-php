@@ -233,3 +233,7 @@ th, .total {
   padding: 10px;
   margin: 5px 0;
 }
+
+p a {
+  text-decoration: underline;
+}

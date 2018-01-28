@@ -18,10 +18,6 @@
       <h2>Your order is being processed.</h2>
       <?php
         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-          if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $remove_idx = array_search($_POST['remove-id'], $_SESSION['cart']);
-            unset($_SESSION['cart'][$remove_idx]);
-          }
           $cart = $_SESSION['cart'];
           echo "<table id=\"cart\">
           <tr>
@@ -43,11 +39,6 @@
             <td class=\"total item-price\">$total</td>
           </tr>";
           echo "</table>";
-        }
-        if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
-          echo "<p>
-          Your cart is currently empty.
-          </p>";
         }
         $customer_name = htmlspecialchars($_POST['name']);
         $address = htmlspecialchars($_POST['address']);
