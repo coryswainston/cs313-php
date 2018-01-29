@@ -37,7 +37,7 @@
            <?php echo "\$$price" ?>
            <form action="add-to-cart.php" method="post">
              <input type="hidden" name="id" value="<?php echo $idx ?>">
-             <input type="number" name="quantity" value="1">
+             <input type="number" min="1" name="quantity" value="1">
              <button type="submit" name="add_to_cart">Add to cart</button>
            </form>
          </div>
