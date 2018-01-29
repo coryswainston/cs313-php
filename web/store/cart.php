@@ -17,10 +17,6 @@
     <main>
       <?php
         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-          if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $remove_idx = array_search($_POST['remove-id'], $_SESSION['cart']);
-            unset($_SESSION['cart'][$remove_idx]);
-          }
           $cart = $_SESSION['cart'];
           echo "<table id=\"cart\">
           <tr>
@@ -38,7 +34,7 @@
               <td class=\"item-name\">$name</td>
               <td class=\"item-price\">$price</td>
               <td class=\"remove\">
-              <form action=\"\" method=\"post\">
+              <form action=\"remove-from-cart.php\" method=\"post\">
                 <input type=\"hidden\" name=\"remove-id\" value=\"$id\" />
                 <button type=\"submit\">Remove</button>
               </form>

@@ -16,19 +16,10 @@
     </header>
     <main>
       <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          if (isset($_POST["id"])) {
-            for ($i = 0; $i < $_POST['quantity']; $i++) {
-              if (isset($_SESSION['cart'])) {
-                array_push($_SESSION['cart'], $_POST['id']);
-              } else {
-                $_SESSION['cart'] = array($_POST['id']);
-              }
-            }
-            echo "<p>
-              Item successfully added to cart. <a href=\"cart.php\">View cart</a>
+        if (isset($_GET['success']) && $_GET['success'] == 'true') {
+          echo "<p>
+            Item successfully added to cart. <a href=\"cart.php\">View cart</a>
             </p>";
-          }
         }
 
         $idx = $_GET['idx'];
@@ -44,7 +35,7 @@
          <div class="big_info">
            <h3><?php echo $name ?></h3>
            <?php echo "\$$price" ?>
-           <form action="" method="post">
+           <form action="add-to-cart.php" method="post">
              <input type="hidden" name="id" value="<?php echo $idx ?>">
              <input type="number" name="quantity" value="1">
              <button type="submit" name="add_to_cart">Add to cart</button>
