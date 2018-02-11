@@ -11,7 +11,7 @@ function get_db() {
   $dbName = ltrim($dbopts["path"], '/');
 
   try {
-    $db = new PDO('pgsql:host=$dbHost;port=$dbPort;dbname=$dbName', $dbUser, $dbPass);
+    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass);
     return $db;
   }
   catch (PDOException $e) {
