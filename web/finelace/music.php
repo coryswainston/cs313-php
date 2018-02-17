@@ -1,6 +1,6 @@
-<?php require 'header.php'; ?>
+<?php require 'modules/header.php'; ?>
 
-<?php require 'database.php'; ?>
+<?php require 'database/database.php'; ?>
 
 <main>
 <?php
@@ -17,8 +17,12 @@ foreach ($db->query('SELECT * FROM song') as $song) {
     Your browser does not support audio.
   </audio><br />";
 }
+
+if ($_SESSION['login'] == 'admin') {
+  echo '<a href="new-song.php">Upload new song</a>';
+}
 ?>
 
 </main>
 
-<?php require 'footer.php'; ?>
+<?php require 'modules/footer.php'; ?>

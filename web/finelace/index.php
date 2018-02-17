@@ -1,4 +1,4 @@
-<?php require 'header.php'; ?>
+<?php require 'modules/header.php'; ?>
 
 <main>
   <h2>Welcome</h2>
@@ -10,4 +10,4 @@
   </div>
 </main>
 
-<?php require 'footer.php'; ?>
+<?php require 'modules/footer.php'; ?>

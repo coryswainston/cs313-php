@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  background: #555;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 26pt;
+  font-family: sans-serif;
+}
+
+.login-form {
+  padding: 50px;
+  border-radius: 10px;
+  background: white;
+  text-align: center;
+}
+
+.login-form input {
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16pt;
+  margin-bottom: 10px;
+}
+
+.login-form button {
+  background: #555;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-size: 16pt;
+}
+
+.login-form button:hover {
+  background: #999;
+}
