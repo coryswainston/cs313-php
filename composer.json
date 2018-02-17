@@ -4,7 +4,7 @@
   },
   "scripts": {
     "compile": [
-      "chmod -R 777 music/"
+      "chmod -R 777 web/finelace/music/"
     ]
   }
 }
