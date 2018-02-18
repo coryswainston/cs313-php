@@ -1,6 +1,17 @@
+:root {
+  --cursive: Satisfy, cursive;
+  --title: 'Amatic SC', sans-serif;
+  --paragraph: 'Open Sans', sans-serif;
+  --teal: #087E8B;
+  --red: #FF5A5F;
+  --black: #3C3C3C;
+  --white: #F5F5F5;
+  --pink: #C1839F;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: var(--paragraph);
 }
 
 header, main, footer {
@@ -9,6 +20,14 @@ header, main, footer {
 
 h1 {
   margin: 0;
+  font-family: var(--cursive);
+  font-size: 38pt;
+}
+
+h2 {
+  font-family: var(--title);
+  font-size: 32pt;
+  color: var(--teal);
 }
 
 a {
@@ -19,7 +38,11 @@ a {
 }
 
 a:hover {
-  color: lightblue;
+  color: var(--teal);
+}
+
+p {
+  margin: 0;
 }
 
 img {
@@ -33,11 +56,17 @@ nav ul {
 
 nav ul li {
   display: inline-block;
+  padding-right: 10px;
 }
 
 header, footer {
-  background: grey;
-  color: white;
+  background: var(--pink);
+  color: var(--white);
+}
+
+main {
+  background: var(--white);
+  color: var(--black);
 }
 
 .featured {
@@ -47,4 +76,36 @@ header, footer {
 .greeting {
   width: 100%;
   text-align: right;
+}
+
+audio {
+  width: 100%;
+}
+
+.admin-button {
+  background: var(--teal);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  border: 0;
+  transition: none;
+  font-size: 12pt;
+  font-family: inherit;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.post-options {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+input[type="text"], textarea {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  border: 0;
+  font-family: inherit;
 }

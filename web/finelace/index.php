@@ -3,7 +3,7 @@
 <main>
   <h2>Welcome</h2>
   <p>
-    There is going to be stuff here.
+    Hi, I'm Lacie Anne! Welcome to my website.
   </p>
   <div class="featured">
     <img src="images/cover.jpg" alt="">

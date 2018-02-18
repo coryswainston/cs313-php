@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Fine Lace Music</title>
     <link rel="stylesheet" href="css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans|Satisfy" rel="stylesheet">
   </head>
   <body>
   <header>

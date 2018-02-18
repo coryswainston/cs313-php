@@ -26,7 +26,7 @@ $content = $row['postcontent'];
     <input type="text" readonly name="author" value="<?php echo $_SESSION['username']; ?>"><br>
     <input type="text" name="title" value="<?php echo $title; ?>"></input><br>
     <textarea name="content" rows="50" cols="80"><?php echo $content; ?></textarea>
-    <button type="submit">Save Post</button>
+    <button class="admin-button" type="submit">Save Post</button>
   </form>
 </main>
  <?php require 'modules/footer.php'; ?>

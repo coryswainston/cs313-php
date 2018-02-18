@@ -4,7 +4,7 @@
 <main>
 <?php
 if ($_SESSION['login'] == 'admin') {
-  echo '<a href="new-post.php" class="new-post-link">+ Add new post</a>';
+  echo '<a class="admin-button" href="new-post.php" class="new-post-link">+ Add new post</a>';
 }
 
 $db = get_db();
@@ -24,11 +24,12 @@ foreach ($db->query('SELECT post.*, siteuser.username AS author FROM post INNER 
   </p>
   <br />";
   if ($_SESSION['login'] == 'admin') {
-    echo "<form action=\"database/delete-post.php\" method=\"POST\">
+    echo "<div class=\"post-options\">
+    <form action=\"database/delete-post.php\" method=\"POST\">
       <input type=\"hidden\" name=\"post_id\" value=\"$id\"/>
-      <button type=\"submit\">Delete Post</button>
+      <button class=\"admin-button\" type=\"submit\">Delete Post</button>
     </form>
-    <a href=\"edit-post.php?postid=$id\">Edit Post</a>";
+    <a class=\"admin-button\" href=\"edit-post.php?postid=$id\">Edit Post</a></div>";
   }
 }
 ?>

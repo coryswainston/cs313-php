@@ -19,7 +19,7 @@ foreach ($db->query('SELECT * FROM song') as $song) {
 }
 
 if ($_SESSION['login'] == 'admin') {
-  echo '<a href="new-song.php">Upload new song</a>';
+  echo '<a class="admin-button" href="new-song.php">Upload new song</a>';
 }
 ?>
 
