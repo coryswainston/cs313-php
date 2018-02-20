@@ -1,9 +1,7 @@
 <?php
 
 session_start();
-$_SESSION['login'] = NULL;
-$_SESSION['username'] = NULL;
-$_SESSION['userid'] = NULL;
+session_destroy();
 
 header('Location: index.php');
 
