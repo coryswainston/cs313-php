@@ -32,6 +32,9 @@
           <a href="music.php">Music</a>
         </li>
         <li>
+          <a href="videos.php">Videos</a>
+        </li>
+        <li>
           <a href="blog.php">Blog</a>
         </li>
         <li>
