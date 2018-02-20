@@ -27,7 +27,7 @@ foreach ($db->query('SELECT post.*, siteuser.username AS author FROM post INNER 
     echo "<div class=\"post-options\">
     <form action=\"database/delete-post.php\" method=\"POST\">
       <input type=\"hidden\" name=\"post_id\" value=\"$id\"/>
-      <button class=\"admin-button\" type=\"submit\">Delete Post</button>
+      <button class=\"admin-button red\" type=\"submit\">Delete Post</button>
     </form>
     <a class=\"admin-button\" href=\"edit-post.php?postid=$id\">Edit Post</a></div>";
   }

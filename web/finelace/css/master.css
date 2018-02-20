@@ -96,6 +96,10 @@ audio {
   cursor: pointer;
 }
 
+.red {
+  background: var(--red);
+}
+
 .post-options {
   display: flex;
   flex-flow: row nowrap;
