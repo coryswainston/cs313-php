@@ -4,7 +4,7 @@ function get_db() {
   $dbUrl = getenv('DATABASE_URL');
 
   if (!isset($dbUrl) || empty($dbUrl)) {
-    require 'local.php';
+    require_once('local.php');
     $dbHost = 'localhost';
     $dbPort = '5432';
     $dbUser = get_local('DB_USERNAME');
