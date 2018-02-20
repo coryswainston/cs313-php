@@ -50,6 +50,9 @@
        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
          <input type="email" name="email" placeholder="Email"><br>
          <input type="password" name="password" placeholder="Password"><br>
+         <?php if ($_GET['success'] === 'false') {
+           echo "Username or password not recognized. Try again.<br /><br />";
+         } ?>
          <button type="submit" name="login">Login</button>
        </form>
      </div>
