@@ -4,11 +4,11 @@ function get_db() {
   $dbUrl = getenv('DATABASE_URL');
 
   if (!isset($dbUrl) || empty($dbUrl)) {
-    include 'local.php';
+    require 'local.php';
     $dbHost = 'localhost';
     $dbPort = '5432';
-    $dbUser = $local_user;
-    $dbPass = $local_pass;
+    $dbUser = get_local('DB_USERNAME');
+    $dbPass = get_local('DB_PASSWORD');
     $dbName = 'postgres';
   }
   else {
