@@ -27,11 +27,14 @@
        $password = $_POST['password'];
 
        $db = get_db();
-       foreach ($db->query('SELECT * FROM siteuser') as $user) {
-         if ($user['useremail'] == $email && $user['userpassword'] == $password) {
-           $success = true;
-           break;
-         }
+       $stmt = $db->prepare('SELECT * FROM siteuser WHERE useremail=:email');
+       $stmt->bindValue(':email', $email);
+       $stmt->execute();
+       $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+       $hash = $user['userpassword'];
+       if (password_verify($password, $hash)) {
+         $success = true;
        }
 
        if (!$success) {
