@@ -2,11 +2,8 @@
 
 <main>
   <h2>Welcome</h2>
-  <p>
-    Hi, I'm Lacie Anne! Welcome to my website.
-  </p>
   <div class="featured">
-    <img src="images/cover.jpg" alt="">
+    <iframe class="youtube" height="600" src="https://www.youtube.com/embed/rxnoNr-aL9s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </main>
 

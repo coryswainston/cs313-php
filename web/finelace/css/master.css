@@ -18,6 +18,10 @@ header, main, footer {
   padding: 20px 50px 5px;
 }
 
+footer {
+  padding-bottom: 300px;
+}
+
 h1 {
   margin: 0;
   font-family: var(--cursive);
@@ -49,7 +53,7 @@ img {
   width: 100%;
 }
 
-nav ul {
+ul {
   list-style: none;
   padding: 0;
 }
@@ -76,6 +80,11 @@ main {
 .greeting {
   width: 100%;
   text-align: right;
+}
+
+.song {
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 audio {
@@ -116,5 +125,30 @@ input[type="text"], textarea {
 
 .youtube {
   width: 100%;
+  height: calc((100vw - 100px) / 1.8);
   border: 0;
+}
+
+.follow-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.follow-links {
+  width: 40%;
+}
+
+.follow-links ul li {
+  height: 100px;
+  margin: 50px 0;
+}
+
+.follow-links ul li img {
+  height: 100%;
+  width: auto;
+}
+
+.fb-page {
+  width: 40%;
 }

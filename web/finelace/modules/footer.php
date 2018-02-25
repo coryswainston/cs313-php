@@ -1,5 +1,7 @@
   <footer>
-    <small>Site by Cory Swainston</small>
+    <small>Site by
+      <a href="http://coryswainston.com">Cory Swainston</a>
+    </small>
   </footer>
   </body>
 </html>
