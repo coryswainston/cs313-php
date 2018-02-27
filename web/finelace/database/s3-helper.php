@@ -16,6 +16,8 @@ function get_s3_client() {
     $aws_secret = get_local('AWS_SECRET_ACCESS_KEY');
   }
 
+  $s3 = Aws\S3\S3Client::factory(array('key' => $aws_key, 'secret' => $aws_secret));
+
   return $s3;
 }
 
